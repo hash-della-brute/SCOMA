@@ -4,7 +4,6 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
 // Mostra o formulário de login
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -27,5 +26,11 @@ Route::post('/register', [AuthController::class, 'register']);
 
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('/', function () {
+        \App\Models\Material::all()->each(function ($material) {
+            dd($material);
+        });
+    });
 
 });

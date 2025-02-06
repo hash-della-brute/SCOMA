@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Material;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MaterialController extends Controller
 {
@@ -11,7 +13,9 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        //
+        return view('material.index', [
+            'materials' => DB::table('materials')->paginate(3)
+        ]);
     }
 
     /**
@@ -19,7 +23,7 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        //
+        return view('material.create');
     }
 
     /**
@@ -27,7 +31,17 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $material = $request->validate([
+            'name' => 'required',
+            'description' => 'string|nullable',
+            'quantity' => 'integer|nullable',
+            'serial_number' => 'string|nullable',
+            'asset_number' => 'string|nullable',
+        ]);
+
+        Material::class::create($material);
+
+        return redirect()->route('material.index');
     }
 
     /**
@@ -35,7 +49,7 @@ class MaterialController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
@@ -59,6 +73,8 @@ class MaterialController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Material::destroy($id);
+
+        return redirect()->route('material.index');
     }
 }

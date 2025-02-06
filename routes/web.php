@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MaterialController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,10 +28,8 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/', function () {
-        \App\Models\Material::all()->each(function ($material) {
-            dd($material);
-        });
-    });
+    Route::get('/materials', [MaterialController::class, 'index'])->name('material.index');
+
+    Route::resource('material', MaterialController::class)->except(['index']);
 
 });

@@ -10,6 +10,14 @@
             <form class="space-y-6" action="/register" method="POST">
                 @csrf
 
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <p class="text-red-500">{{$error}}</p>
+                    @endforeach
+
+
+                @endif
+
                 <!-- Campo Nome -->
                 <div>
                     <label for="name" class="block text-sm/6 font-medium text-gray-100">Nome</label>

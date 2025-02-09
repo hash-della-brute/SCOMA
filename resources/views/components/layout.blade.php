@@ -23,10 +23,9 @@
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
 
-                                <x-nav-link href="/dashboard" active="{{request()->is('dashboard')}}">Dashboard</x-nav-link>
-                                <x-nav-link href="/materials" active="{{request()->is('materials')}}">Materiais</x-nav-link>
-                                <x-nav-link href="/transactions" active="{{request()->is('/transactions')}}">Transações</x-nav-link>
-                                <x-nav-link href="relatorios" active="{{request()->is('/relatorios')}}">Relatórios</x-nav-link>
+                                <x-nav-link href="/materiais" active="{{request()->is('materiais')}}">Materiais</x-nav-link>
+                                <x-nav-link href="/transacoes" active="{{request()->is('/transacoes')}}">Transações</x-nav-link>
+                                <x-nav-link href="/relatorios" active="{{request()->is('/relatorios')}}">Relatórios</x-nav-link>
 
                             </div>
                         </div>
@@ -75,9 +74,12 @@
                                     tabindex="-1"
                                     @click.away="open = false"
                                 >
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                                    <a href="/logout" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="block w-full px-4 py-2 text-sm text-gray-700 text-left" role="menuitem" tabindex="-1" id="user-menu-item-2">
+                                        Sign out
+                                    </button>
+                                </form>
                                 </div>
                             </div>
                         </div>

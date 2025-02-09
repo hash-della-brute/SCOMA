@@ -28,8 +28,13 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/materials', [MaterialController::class, 'index'])->name('material.index');
 
-    Route::resource('material', MaterialController::class)->except(['index']);
+    Route::get('/', function() {
+        return view('material.index');
+    });
+
+    Route::get('/materiais', function () {
+        return view('material.index');
+    });
 
 });

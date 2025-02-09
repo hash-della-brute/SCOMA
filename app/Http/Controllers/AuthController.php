@@ -72,7 +72,7 @@ class AuthController extends Controller
 
         Auth::login($user);
         $request->session()->regenerate();
-        return redirect()->intended('/about');
+        return redirect()->intended('/materials');
 
     }
 }

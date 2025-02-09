@@ -14,6 +14,7 @@ class Material extends Model
         'name',
         'description',
         'quantity',
+        'sector',
         'serial_number',
         'asset_number',
     ];

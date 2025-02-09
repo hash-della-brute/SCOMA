@@ -24,8 +24,8 @@
                             <div class="ml-10 flex items-baseline space-x-4">
 
                                 <x-nav-link href="/materiais" active="{{request()->is('materiais')}}">Materiais</x-nav-link>
-                                <x-nav-link href="/transacoes" active="{{request()->is('/transacoes')}}">Transações</x-nav-link>
-                                <x-nav-link href="/relatorios" active="{{request()->is('/relatorios')}}">Relatórios</x-nav-link>
+                                <x-nav-link href="/transacoes" active="{{request()->is('transacoes')}}">Transações</x-nav-link>
+                                <x-nav-link href="/relatorios" active="{{request()->is('relatorios')}}">Relatórios</x-nav-link>
 
                             </div>
                         </div>

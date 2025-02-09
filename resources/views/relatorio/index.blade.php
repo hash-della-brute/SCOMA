@@ -1,3 +1,3 @@
 <x-layout>
-    {{"Transacao"}}
+    {{"Relatorios"}}
 </x-layout>

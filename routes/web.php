@@ -37,4 +37,12 @@ Route::middleware(['auth'])->group(function () {
         return view('material.index');
     });
 
+    Route::get('/transacoes', function(){
+        return view('transacao.index');
+    });
+
+    Route::get('/relatorios', function() {
+        return view('relatorio.index');
+    });
+
 });
